@@ -1,0 +1,311 @@
+@keyframes fold {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(-180deg);
+    }
+  }
+  
+  @keyframes unfold {
+    0% {
+      transform: rotateX(180deg);
+    }
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .flipClock {
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    padding: 3rem 120px;
+  }
+  
+  .flipUnitWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .upperCard span,
+  .lowerCard span,
+  .flipCard span {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .flipUnitContainer {
+    display: block;
+    flex: 1;
+    width: calc((80vw - 120px) / 4);
+    position: relative;
+    height: 20vh;
+    perspective-origin: 50% 50%;
+    perspective: 300px;
+    background-color: #434242;
+    border-radius: 16px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .flipUnitContainer {
+      height: 11vh;
+    }
+  }
+  
+  .label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+  }
+  
+  .upperCard,
+  .lowerCard {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(12, 12, 12, 0.1);
+  }
+  
+  .upperCard span,
+  .lowerCard span,
+  .flipCard span {
+    font-size: 7em;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+  }
+  
+  .lowerCard span,
+  .flipCard span {
+    font-size: 7em;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+    color: white;
+  }
+  
+  .upperCard {
+    align-items: flex-end;
+    border-bottom: 0.5px solid rgba(12, 12, 12, 0.1);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  
+  .upperCard span {
+    transform: translateY(50%);
+  }
+  
+  .lowerCard {
+    align-items: flex-start;
+    border-top: 0.5px solid rgba(12, 12, 12, 0.1);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+  
+  .lowerCard span {
+    transform: translateY(-50%);
+  }
+  
+  .flipCard {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flipCard.unfold {
+    top: 50%;
+    align-items: flex-start;
+    transform-origin: 50% 0%;
+    transform: rotateX(180deg);
+    background-color: #303030;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border: 0.5px solid rgba(12, 12, 12, 0.1);
+    border-top: 0.5px solid rgba(12, 12, 12, 0.1);
+  }
+  
+  .flipCard.unfold span {
+    transform: translateY(-50%);
+  }
+  
+  .flipCard.fold {
+    top: 0%;
+    align-items: flex-end;
+    transform-origin: 50% 100%;
+    transform: rotateX(0deg);
+    background-color: #4d4c4c;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border: 0.5px solid rgba(12, 12, 12, 0.1);
+    border-bottom: 0.5px solid rgba(12, 12, 12, 0.1);
+  }
+  
+  .flipCard.fold span {
+    transform: translateY(50%);
+  }
+  
+  .fold {
+    animation: fold 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+    transform-style: preserve-3d;
+  }
+  
+  .unfold {
+    animation: unfold 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+    transform-style: preserve-3d;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .flipUnitContainer {
+      width: calc((100vw - 80px) / 4);
+    }
+  
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 5em;
+    }
+  }
+  
+  @media screen and (max-width: 968px) {
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 4em;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .flipUnitContainer {
+      width: calc((100vw - 80px) / 4);
+    }
+  
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 5em;
+    }
+  }
+  
+  @media screen and (max-width: 968px) {
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 4em;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .flipClock {
+      width: 100%;
+      gap: 5%;
+      padding: 0 60px;
+      margin-bottom: 2.5rem;
+    }
+  
+    .flipUnitContainer {
+      width: calc((100vw - 60px) / 4);
+    }
+  
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 4em;
+    }
+  
+    .label {
+      font-size: 0.8em;
+    }
+  }
+  
+  @media screen and (max-width: 706px) {
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 3em;
+      font-size: 0.8em;
+    }
+  }
+  
+  @media screen and (max-width: 706px) {
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 3em;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .flipClock {
+      transform: scale(0.9);
+      width: 95%;
+      gap: 1%;
+      padding: 0 10px;
+      margin-bottom: 2rem;
+    }
+  
+    .flipUnitContainer {
+      height: 22vw;
+      min-height: 70px;
+      width: calc((95vw - 40px) / 4);
+      max-width: 100px;
+    }
+  
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 2em;
+    }
+  
+    .label {
+      font-size: 0.6em;
+    }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .flipClock {
+      transform: scale(0.85);
+      width: 98%;
+      gap: 0.8%;
+      padding: 0 5px;
+    }
+  
+    .flipUnitContainer {
+      width: calc((98vw - 20px) / 4);
+      height: 24vw;
+      min-width: 50px;
+      min-height: 60px;
+      max-width: 90px;
+    }
+  
+    .upperCard span,
+    .lowerCard span,
+    .flipCard span {
+      font-size: 1.25em;
+    }
+  
+    .label {
+      font-size: 0.4em;
+      font-size: 1.25em;
+    }
+  }
