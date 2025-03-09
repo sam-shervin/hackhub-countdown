@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import FlipClock from '@/components/Timer/Timer';
 
 export default function BgImage() {
